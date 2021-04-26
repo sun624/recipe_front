@@ -1,0 +1,15 @@
+nav {
+  display: flex;
+  justify-content: space-around;
+  position: sticky;
+  top: 0;
+  align-self: center;
+  align-items: center;
+  background-color: lightgray;
+}
+
+#user_input {
+  text-align: center;
+  margin: 150px;
+  justify-content: space-around;
+}
