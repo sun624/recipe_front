@@ -1,9 +1,12 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,500,300,700);
 html,
 body {
   width: 100%;
   height: 100%;
 }
-
+* {
+  font-family: Open Sans;
+}
 * {
   margin: 0px;
   padding: 0px;
@@ -16,7 +19,7 @@ body {
   background-attachment: fixed;
   background-size: cover; */
   background-color: rgb(17, 15, 17);
-  border: 2px solid black;
+  /* border: 2px solid black; */
 }
 nav {
   display: flex;
@@ -99,62 +102,6 @@ nav {
   justify-content: space-evenly;
 }
 
-#page-footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  @media (min-width: 768px) {
-    display: none;
-  }
-}
-#page-menu {
-  background: hsla(213, 48%, 69%, 0.8);
-}
-#page-footer-container {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  overflow: hidden;
-}
-.page-link {
-  padding-top: 0.75em;
-  padding-bottom: 0.75em;
-}
-.page-link a {
-  font-size: 16px;
-  color: #fff;
-  text-decoration: none;
-}
-#page-footer-close {
-  position: relative;
-}
-#page-footer-btn {
-  position: absolute;
-  bottom: 25px;
-  right: 5px;
-  width: 30px;
-  height: 30px;
-  background-color: #959192;
-  border: none;
-  border-radius: 50%;
-  overflow: hidden;
-  text-indent: 100%;
-  color: transparent;
-  white-space: nowrap;
-  cursor: pointer;
-}
-.page-btn-close span,
-.page-btn-close span::before {
-  content: "";
-  position: absolute;
-  width: 5px;
-  height: 18px;
-  top: calc(50% - 9px);
-  right: calc(50% + -2.5px);
-  background-color: #fff;
-  transform: rotate(-90deg);
-  transition: 0.3s ease-out;
-}
 @media screen and (max-width: 768px) {
   .search_container {
     flex-direction: column;
@@ -307,8 +254,24 @@ nav {
     width: 90%;
   }
   .recipe_finder {
-    width: 100%;
+    width: 10%;
     flex-direction: column;
+  }
+  .footer-distributed {
+    font: bold 14px sans-serif;
+  }
+  .footer-distributed .footer-left,
+  .footer-distributed .footer-center,
+  .footer-distributed .footer-right {
+    display: block;
+    width: 100%;
+
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .footer-distributed .footer-center i {
+    margin-left: 0;
   }
 }
 
