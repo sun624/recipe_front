@@ -280,3 +280,67 @@ nav {
 .toggle .line3 {
   transform: rotate(45deg) translate(-5px, -6px);
 }
+
+/* /////////////////
+MODAL POPUP STYLING
+/////////////////// */
+
+@import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
+
+/* * {
+  box-sizing: border-box;
+}
+body {
+  background-color: #edeeff;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+} */
+
+#open {
+  background-color: rgb(32, 218, 203);
+  width: 202%;
+  height: 100%;
+  border-radius: 25px;
+  font-size: large;
+}
+
+.button {
+  background-color: blue;
+  border: 0;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px black;
+  color: aquamarine;
+  font-size: 14px;
+  padding: 10px 25px;
+}
+
+.modal-container {
+  background-color: burlywood;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  opacity: 0;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  height: 70vh;
+  width: 70vw;
+  transition: opacity 0.3s ease;
+}
+
+.modal-container.show {
+  pointer-events: auto;
+  opacity: 1;
+}
+.modal {
+  background-color: burlywood;
+  padding: 30px 50px;
+  width: 600px;
+  max-width: 100%;
+  text-align: center;
+}
