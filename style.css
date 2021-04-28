@@ -1,3 +1,9 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
 * {
   margin: 0px;
   padding: 0px;
@@ -5,10 +11,12 @@
 }
 body {
   /* background-image: url("./img/background2.jpeg"); */
-  background-image: url("./img/background2.jpeg");
-  background-repeat: no-repeat;
+  /* background-image: url("./img/background2.jpeg"); */
+  /* background-repeat: no-repeat;
   background-attachment: fixed;
-  background-size: cover;
+  background-size: cover; */
+  background-color: rgb(17, 15, 17);
+  border: 2px solid black;
 }
 nav {
   display: flex;
@@ -43,6 +51,7 @@ nav {
 .burger {
   display: none;
   cursor: pointer;
+  z-index: 1;
 }
 
 .burger div {
@@ -52,45 +61,91 @@ nav {
   margin: 5px;
   transition: all 0.3s ease;
 }
-.search-box {
+/* Example style to check the changes */
+.recipe_finder {
   position: absolute;
-  top: 50%;
-  left: 35%;
+  top: 35%;
+  left: 50%;
   transform: translate(-50%, -50%);
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-flow: wrap;
+}
+/* Example recipe_box class update for test */
+/* .recipe_box {
+  width: 20%;
+  height: 45px;
+  background: yellow;
+  opacity: 70%;
+  margin: 20px;
+  box-sizing: border-box;
+  font-size: 30px;
+  border-radius: 10%;
+  text-align: center;
+} */
+
+.main_container {
+  position: relative;
+  z-index: -1;
+}
+
+.search_container {
+  position: absolute;
+  top: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+@media screen and (max-width: 768px) {
+  .search_container {
+    flex-direction: column;
+  }
+}
+
+.search-box {
+  /* position: absolute;
+  top: 55%;
+  left: 35%; */
+  /* transform: translate(-50%, -50%); */
   background: rgb(32, 218, 203);
-  height: 40px;
+  height: 45px;
   border-radius: 40px;
   padding: 10px;
   display: flex;
   font-size: large;
 }
 .submit-box {
-  position: absolute;
-  top: 50%;
+  /* position: absolute;
+  top: 55%;
   left: 65%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */
   background: rgb(32, 218, 203);
-  height: 70px;
+  height: 45px;
   /* width: 50px; */
   border-radius: 40px;
+  border-color: rgb(32, 218, 203);
   padding: 10px;
-  font-weight: bold;
-  font-size: large;
+  font-weight: 800;
+  font-size: medium;
 }
 .search-box:hover > .search-text {
-  width: 240px;
+  /* width: 240px; */
   padding: 0 6px;
 }
 .search-box:hover > .search-btn {
-  background: white;
+  background: none;
+  align-items: center;
 }
 .search-btn {
   color: #e84118;
   float: right;
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
   border-radius: 50%;
-  background: white;
+  background: none;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -102,22 +157,67 @@ nav {
   outline: none;
   float: left;
   padding: 0;
-  color: white;
-  font-size: 16px;
+  color: black;
+  font-size: 20px;
   /* transition: 0.4s; */
   line-height: 20px;
   width: 0px;
 }
+/* This is a style for menu_container */
+.menu_container {
+  position: absolute;
+  top: 100px;
+  /* position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%); */
+  width: 100%;
+  /* height: auto; */
+  /* background-color: black; */
+  background-image: url("./img/background2.jpeg");
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-flow: wrap;
+}
+.box {
+  width: 20%;
+  height: 300px;
+  background: rgb(32, 218, 203);
+  opacity: 70%;
+  margin: 20px;
+  box-sizing: border-box;
+  font-size: 30px;
+  border-radius: 10%;
+  text-align: center;
+}
 
-@media screen and (max-width: 1024px) {
+/* Adding responsive media quaries */
+
+@media screen and (max-width: 1920px) {
   .nav-links {
     width: 60%;
   }
+  .box {
+    width: 40%;
+  }
+  .search-box {
+    width: 20%;
+  }
+  .submit-box {
+    width: 95%;
+  }
+  .search-text {
+    width: 90%;
+  }
+  /* .recipe_finder {
+    width: 100%;
+  } */
 }
 
 @media screen and (max-width: 768px) {
   body {
-    overflow-x: hidden;
+    overflow-x: none;
   }
   .nav-links {
     position: absolute;
@@ -137,6 +237,22 @@ nav {
   }
   .burger {
     display: block;
+  }
+  .box {
+    width: 90%;
+  }
+  .search-box {
+    width: 35%;
+  }
+  .submit-box {
+    width: 35%;
+  }
+  .search-text {
+    width: 90%;
+  }
+  .recipe_finder {
+    width: 100%;
+    flex-direction: column;
   }
 }
 
