@@ -1,0 +1,202 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+      crossorigin="anonymous"
+    />
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"
+    ></script>
+    <link rel="stylesheet" href="./createRecipe.css" />
+    <title>Navagation</title>
+  </head>
+  <body>
+    <nav>
+      <div class="logo">
+        <h2>Recipe Finder</h2>
+      </div>
+      <ul class="nav-links">
+        <li>
+          <a href="#">Home</a>
+        </li>
+        <li>
+          <a href="#">About</a>
+        </li>
+        <li>
+          <a href="#">Contact</a>
+        </li>
+        <li>
+          <a href="#">Blog</a>
+        </li>
+        <li>
+          <a href="#">Login</a>
+        </li>
+        <li>
+          <a href="#">Signup</a>
+        </li>
+      </ul>
+      <div class="burger">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+      </div>
+    </nav>
+    <h4>Create your own recipe</h4>
+
+    <div class="main_Container">
+      <form>
+        <div id="recipeInput">
+          <label for="recipename">Name:</label>
+          <input
+            type="text"
+            name="recipename"
+            id="recipename"
+            placeholder="Recipe Title"
+          />
+        </div>
+        <div id="recipeInput">
+          <label for="ingredients">Ingredients:</label>
+          <input
+            type="text"
+            name="ingredients"
+            id="ingredients"
+            placeholder="Enter your ingredients"
+          />
+        </div>
+        <div id="recipeInput">
+          <label for="steps">Steps:</label>
+          <textarea
+            type="text"
+            name="steps"
+            id="steps"
+            placeholder="List of required steps"
+          >
+          </textarea>
+        </div>
+      </form>
+    </div>
+  </body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+      crossorigin="anonymous"
+    />
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"
+    ></script>
+    <link rel="stylesheet" href="./createRecipe.css" />
+
+    <!-- ///////////////////////////////////
+    ////////////////////////////////////////
+  //////////////////////////////////////// -->
+    <!-- This is the new html for the form -->
+    <title>Document</title>
+  </head>
+  <body>
+    <nav>
+      <div class="logo">
+        <h2>Recipe Finder</h2>
+      </div>
+      <ul class="nav-links">
+        <li>
+          <a href="#">Home</a>
+        </li>
+        <li>
+          <a href="#">About</a>
+        </li>
+        <li>
+          <a href="#">Contact</a>
+        </li>
+        <li>
+          <a href="#">Blog</a>
+        </li>
+        <li>
+          <a href="#">Login</a>
+        </li>
+        <li>
+          <a href="#">Signup</a>
+        </li>
+      </ul>
+      <div class="burger">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+      </div>
+    </nav>
+    <div class="container">
+      <form action="">
+        <div class="row">
+          <div class="col-25">
+            <label for="name">Name</label>
+          </div>
+          <div class="col-75">
+            <input
+              type="text"
+              id="recipetitle"
+              name="recipetitle"
+              placeholder="Recipe Title"
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label for="ingredients">Your ingredients</label>
+          </div>
+          <div class="col-75">
+            <input
+              type="text"
+              id="ingredients"
+              name="ingredients"
+              placeholder="Ingredients"
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label for="steps">Steps</label>
+          </div>
+          <div class="col-75">
+            <textarea
+              id="steps"
+              name="steps"
+              placeholder="List of required steps"
+              style="height: 200px"
+            ></textarea>
+          </div>
+        </div>
+        <div class="row">
+          <input type="submit" value="Submit" />
+        </div>
+      </form>
+    </div>
+    <script src="./recipeapp.js"></script>
+  </body>
+</html>
