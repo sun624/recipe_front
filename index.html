@@ -25,6 +25,7 @@
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     />
     <link rel="stylesheet" href="style.css" />
+    <script src="https://apis.google.com/js/api.js?onload=onLibraryLoaded" async defer></script>
     <title>Navagation</title>
   </head>
   <body>
@@ -46,7 +47,7 @@
           <a href="#">Blog</a>
         </li>
         <li>
-          <a href="#">Login</a>
+          <a href="#" onclick="onSignInClicked()" id="signin">Login</a>
         </li>
         <!-- <li>
           <a href="#">Signup</a>
@@ -117,6 +118,6 @@
       </div>
     </footer>
     <script src="app.js"></script>
-    <script src="./random-recipe.js"></script>
+    <script src="random-recipe.js"></script>
   </body>
 </html>

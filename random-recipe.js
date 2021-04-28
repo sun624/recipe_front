@@ -1,4 +1,6 @@
 const SERVER = "https://recipe-finder-group404.herokuapp.com/index.html";
+
+
 function fetchData() {
   //fetch("https://reqres.in/api/users")
   fetch(SERVER)
@@ -8,13 +10,12 @@ function fetchData() {
         createItemCard(data[i], i + 1);
       }
     });
-   // const html = data.data.map((user) => {
+  // const html = data.data.map((user) => {
   //   return `<div class="user"><p>Title: ${user.title}</p> <img src="${user.image}" /> </div>`;
   // });
   //console.log(html);
 }
 fetchData();
-
 
 function createItemCard(data, i) {
   let chooseItems = document.createElement("div");
