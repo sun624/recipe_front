@@ -80,7 +80,7 @@
 
   <body class="text-light">
     <div ng-app="app" ui-view></div>
-    <div class="text-center box font search-box">
+    <div class="text-center box font search-box recipe-search">
       <!-- <h1>Recipe Finder 🥘</h1> -->
       <div class="row g-3 justify-content-center">
         <div class="col-auto">
@@ -99,7 +99,7 @@
           </button>
         </div>
         <!-- Modal pop up to create your own recipe -->
-        <div>
+        <div class="col-auto">
           <!-- <input class="submit-box" type="submit" value="Create your own" />
           <a href="#"> </a> -->
           <button id="open">Create your own</button>
@@ -131,6 +131,7 @@
                   cols="30"
                   rows="10"
                   placeholder="Please list all the steps to cook"
+                  required
                 ></textarea>
               </form>
               <!-- <form action="">
