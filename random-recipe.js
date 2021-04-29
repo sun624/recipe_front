@@ -1,6 +1,5 @@
 const SERVER = "https://recipe-finder-group404.herokuapp.com/index.html";
 
-
 function fetchData() {
   //fetch("https://reqres.in/api/users")
   fetch(SERVER)
@@ -10,38 +9,75 @@ function fetchData() {
         createItemCard(data[i], i + 1);
       }
     });
-  // const html = data.data.map((user) => {
-  //   return `<div class="user"><p>Title: ${user.title}</p> <img src="${user.image}" /> </div>`;
-  // });
-  //console.log(html);
 }
 fetchData();
 
 function createItemCard(data, i) {
   let chooseItems = document.createElement("div");
-  // chooseItems.setAttribute("class", "card");
-  // chooseItems.style.width = "15rem";
-  // chooseItems.style.height = "fit-content";
-  // chooseItems.style.margin = "20px;";
-  // console.log(chooseItems);
-  // var img = document.createElement("img");
-  // img.setAttribute("class", "card-img-top");
-  // img.setAttribute("alt", title);
-  // img.setAttribute("src", image);
-
-  // chooseItems.appendChild(img);
-
-  // var cardBody = document.createElement("div");
-  // cardBody.setAttribute("class", "card-body");
-
-  // var cardTitle = document.createElement("h5");
-  // cardTitle.setAttribute("class", "card-title");
-  // cardTitle.innerText = title;
-  // cardBody.appendChild(cardTitle);
-  // chooseItems.appendChild(cardBody);
-
   chooseItems.innerHTML = `<div class="user"><h4>${data.title}</h4> <img width="250px" src="${data.image}"/> </div>`;
   document.querySelector(`#items_container${i}`).appendChild(chooseItems);
-  // .insertAdjacentElement("afterbegin", html);
-  //return chooseItems;
 }
+// fetch(SERVER)
+//   .then((res) => res.json())
+//   .then((data) => displayDest(data));
+
+// function displayDest(data) {
+//   let desDiv = "";
+//   for (ele of data) {
+//     desDiv += createCard(ele);
+//   }
+//   document.querySelector(".menu_container").innerHTML = desDiv;
+// }
+
+// function createCard(ele) {
+//   let singleCard = `
+//         <div class="card" id=${ele.uid} style="width: 15rem; margin: 20px;">
+//             <img class="card-img-top" src=${ele.image}>
+//             <div class="card-body">
+//                 <h5 class="card-title">${ele.title}</h5>
+//                 <div class="button_container">
+//                     <button class="btn btn-warning">Edit</button>
+//                     <button class="btn btn-danger">Remove</button>
+//                 </div>
+//             </div>
+//         </div>`;
+
+//   return singleCard;
+// }
+
+// document
+//   .getElementById(".search-text") ///////////////
+//   .addEventListener("click", createDestination);
+
+// function createDestination(event) {
+//   event.preventDefault();
+
+//   const userData = {
+//     title: document.getElementById("search-id").value,
+//   };
+
+//   renderPage(userData, "POST");
+//   resetForm();
+// }
+
+// document.querySelector(".menu_container").addEventListener("search", () => {
+//   return userData;
+// });
+
+// function renderPage(info, method) {
+//   fetch(SERVER, {
+//     method: method,
+//     //MUST match the data type body is sending
+//     headers: { "Content-Type": "application/json" },
+//     body: JSON.stringify(info),
+//   })
+//     .then((res) => res.json())
+//     .then((data) => {
+//       displayDest(data);
+//       //console.log(data);
+//     });
+// }
+
+// function resetForm() {
+//   document.getElementById("search-id").value = "";
+// }
