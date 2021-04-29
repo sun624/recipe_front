@@ -9,21 +9,21 @@
       href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
       rel="stylesheet"
     />
-    <link
+    <!-- <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
       integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
       crossorigin="anonymous"
-    />
-    <script
+    /> -->
+    <!-- <script
       defer
       src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"
-    ></script>
+    ></script> -->
 
-    <link
+    <!-- <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    />
+    /> -->
     <link rel="stylesheet" href="style.css" />
     <title>Navagation</title>
   </head>
@@ -71,17 +71,44 @@
             <i class="fas fa-search"></i>
           </a>
         </div>
-
         <div>
           <!-- <input class="submit-box" type="submit" value="Create your own" />
-          <a href="#"> </a>
+          <a href="#"> </a> -->
           <button id="open">Create your own</button>
-          <div class="modal-container" id="modal_container">
-            <div class="modal">
-              <h2>Create your own recipe here</h2>
+          <div class="modal-container recipe-container" id="modal_container">
+            <div class="modal recipe-modal">
+              <h3>Create your own recipe here</h3>
+              <form action="">
+                <label for="recipename">Name: </label>
+                <input
+                  type="text"
+                  id="recipename"
+                  name="recipe"
+                  placeholder="Recipe title"
+                /><br />
+                <label for="ingredients">Ingredients: </label>
+                <textarea
+                  name=""
+                  id=""
+                  cols="30"
+                  rows="10"
+                  name="recipe"
+                  placeholder="Ingredients"
+                ></textarea
+                ><br />
+                <label for="steps">Steps: </label>
+                <textarea
+                  name=""
+                  id=""
+                  cols="30"
+                  rows="10"
+                  placeholder="Please list all the steps to cook"
+                ></textarea>
+              </form>
+
               <button id="close">Submit recipe</button>
             </div>
-          </div> -->
+          </div>
         </div>
       </div>
 
@@ -117,6 +144,6 @@
       </div>
     </footer>
     <script src="app.js"></script>
-    <script src="./random-recipe.js"></script>
+    <!-- <script src="./random-recipe.js"></script> -->
   </body>
 </html>

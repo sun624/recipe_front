@@ -88,7 +88,6 @@ nav {
 
 .main_container {
   position: relative;
-  z-index: -1;
 }
 
 .search_container {
@@ -167,9 +166,9 @@ nav {
   left: 35%; */
   /* transform: translate(-50%, -50%); */
   background: rgb(32, 218, 203);
-  height: 45px;
+  height: 35px;
   border-radius: 40px;
-  padding: 10px;
+  padding: 5px;
   display: flex;
   font-size: large;
 }
@@ -218,6 +217,7 @@ nav {
   /* transition: 0.4s; */
   line-height: 20px;
   width: 0px;
+  text-align: center;
 }
 /* This is a style for menu_container */
 .menu_container {
@@ -248,6 +248,68 @@ nav {
   text-align: center;
 }
 
+/* /////////////////
+MODAL POPUP STYLING
+/////////////////// */
+
+@import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
+#open {
+  background-color: rgb(32, 218, 203);
+  width: 202%;
+  height: 35px;
+  border-radius: 25px;
+  font-size: large;
+}
+
+button {
+  background-color: rgb(32, 218, 203);
+  border: 0;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px black;
+  color: white;
+  font-size: 14px;
+  padding: 10px 25px;
+}
+
+.recipe-container {
+  border-radius: 7px;
+  background-color: bisque;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  opacity: 0;
+  pointer-events: none;
+  /* top: 100px; */
+  left: 100px;
+  height: 70vh;
+  width: 70vw;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+  margin-top: 44px;
+}
+
+.recipe-container.show {
+  pointer-events: auto;
+  opacity: 1;
+}
+.recipe-modal {
+  background-color: #e8411840;
+  padding: 30px 50px;
+  width: 350px;
+  max-width: 100%;
+  text-align: center;
+  border-radius: 7px;
+}
+h3 {
+  margin-top: 0px;
+  margin-bottom: 20px;
+}
+label {
+  margin: 2px;
+  padding: 2px;
+  box-sizing: border-box;
+}
 /* Adding responsive media quaries */
 
 @media screen and (max-width: 1920px) {
@@ -258,7 +320,7 @@ nav {
     width: 40%;
   }
   .search-box {
-    width: 20%;
+    width: 35%;
   }
   .submit-box {
     width: 95%;
@@ -266,9 +328,9 @@ nav {
   .search-text {
     width: 90%;
   }
-  /* .recipe_finder {
-    width: 100%;
-  } */
+  #open {
+    width: 150%;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -287,6 +349,7 @@ nav {
     width: 50%;
     transform: translateX(100%);
     transition: tranform 0.5s ease-in;
+    z-index: 1;
   }
   .nav-links li {
     opacity: 0%;
@@ -305,6 +368,9 @@ nav {
   }
   .search-text {
     width: 90%;
+  }
+  #open {
+    width: 35%;
   }
   .recipe_finder {
     width: 100%;
@@ -355,48 +421,3 @@ body {
   min-height: 100vh;
   margin: 0;
 } */
-
-#open {
-  background-color: rgb(32, 218, 203);
-  width: 202%;
-  height: 100%;
-  border-radius: 25px;
-  font-size: large;
-}
-
-.button {
-  background-color: blue;
-  border: 0;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px black;
-  color: aquamarine;
-  font-size: 14px;
-  padding: 10px 25px;
-}
-
-.modal-container {
-  background-color: burlywood;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: fixed;
-  opacity: 0;
-  pointer-events: none;
-  top: 0;
-  left: 0;
-  height: 70vh;
-  width: 70vw;
-  transition: opacity 0.3s ease;
-}
-
-.modal-container.show {
-  pointer-events: auto;
-  opacity: 1;
-}
-.modal {
-  background-color: burlywood;
-  padding: 30px 50px;
-  width: 600px;
-  max-width: 100%;
-  text-align: center;
-}
