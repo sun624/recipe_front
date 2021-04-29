@@ -105,7 +105,7 @@ button {
   height: 400px;
 }
 .recipe-modal {
-  margin-top: 30px;
+  margin-top: 200px;
   background-color: #804848;
   padding: 30px 50px;
   width: 350px;
@@ -157,4 +157,7 @@ label {
   #open {
     width: 100%;
   }
+}
+#text-area {
+  margin-left: -15px;
 }
