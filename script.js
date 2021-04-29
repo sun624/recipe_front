@@ -20,6 +20,12 @@ $(document).ready(() => {
       myFunction(meal);
     }
 
+    const btns = $(".addBtn");
+    for (btn of btns) {
+      $(btn).on("click", addRecp);
+    }
+
+
     function myFunction(item) {
       const ingredient = [
         item.strIngredient1,
@@ -97,7 +103,9 @@ $(document).ready(() => {
                               </div>
                               <div class="modal-footer">
                                 <button type="button" class="btn btn-dark rounded-pill" data-bs-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-danger rounded-pill px-3" id="addBtn" onclick="addRecp()">Add</button>
+
+                                <button type="button" class="btn btn-danger rounded-pill px-3 addBtn" id=${item.idMeal} >Add</button>
+
                               </div>
                             </div>
                           </div>
@@ -125,11 +133,30 @@ $(document).ready(() => {
     }
   }
 
-  function addRecp() {
+  function addRecp(e) {
+    console.log(e);
+    console.log("user sign in status" + isUserSignedIn());
     if (!isUserSignedIn()) {
       alert("please sign in to add");
     } else {
+      //alert("user is signed in ");
       //send data to server
+      const data = {
+        email: showCurrentUserInfo().email,
+        mealId: e.target.id,
+      };
+
+      fetch("https://recipe-404.herokuapp.com/", {
+        method: "POST",
+        //MUST match the data type body is sending
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+            console.log(data)
+            alert(data);
+        });
     }
   }
 

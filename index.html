@@ -76,6 +76,8 @@
       </div>
     </footer>
 
+    <script src="script.js"></script>
+
     <script>
       var auth2 = undefined;
       function onLibraryLoaded() {
@@ -108,7 +110,6 @@
         });
       }
 
-      // Method 1: sign in handler hooked up yourself
       function onSignInClicked() {
         // using global variable
         auth2.signIn().then(
@@ -139,13 +140,16 @@
       function showCurrentUserInfo() {
         const googleUser = auth2.currentUser.get();
         const profile = googleUser.getBasicProfile();
-        console.log("ID: " + profile.getId());
-        console.log("Full Name: " + profile.getName());
-        console.log("Given Name: " + profile.getGivenName());
-        console.log("Family Name: " + profile.getFamilyName());
-        console.log("Image URL: " + profile.getImageUrl());
-        console.log("Email: " + profile.getEmail());
-        //document.querySelector("#name").innerText = JSON.stringify(googleUser);
+
+        const info ={
+            fullName: profile.getName(),
+            fName:profile.getGivenName(),
+            lName:profile.getFamilyName(),
+            profileImg:profile.getImageUrl(),
+            email:profile.getEmail()
+        }
+        return info;
+
       }
 
       function showProfileImg() {
@@ -163,6 +167,7 @@
           $(".favorate").css("display", "none");
         });
       }
+
     </script>
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
@@ -171,14 +176,12 @@
       integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
       crossorigin="anonymous"
     ></script>
-    <script src="script.js"></script>
+
     <iframe
       id="ssIFrame_google"
       sandbox="allow-scripts allow-same-origin"
       aria-hidden="true"
-      frame-border="0"
-      title=""
-      src="https://accounts.google.com/o/oauth2/iframe#origin=http%3A%2F%2Flocalhost%3A3000&amp;rpcToken=1086946938.816088&amp;clearCache=1"
+      frame-border="0" src="https://accounts.google.com/o/oauth2/iframe#origin=http%3A%2F%2Flocalhost%3A3000&amp;rpcToken=1086946938.816088&amp;clearCache=1"
       style="
         position: absolute;
         width: 1px;
