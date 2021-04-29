@@ -75,7 +75,9 @@
         <h6 class="text-center">Made by Group 404</h6>
       </div>
     </footer>
+
     <script src="script.js"></script>
+
     <script>
       var auth2 = undefined;
       function onLibraryLoaded() {
@@ -107,6 +109,7 @@
           });
         });
       }
+
       function onSignInClicked() {
         // using global variable
         auth2.signIn().then(
@@ -137,6 +140,7 @@
       function showCurrentUserInfo() {
         const googleUser = auth2.currentUser.get();
         const profile = googleUser.getBasicProfile();
+
         const info ={
             fullName: profile.getName(),
             fName:profile.getGivenName(),
@@ -145,6 +149,7 @@
             email:profile.getEmail()
         }
         return info;
+
       }
 
       function showProfileImg() {
@@ -163,10 +168,6 @@
         });
       }
 
-
-    
-
-      
     </script>
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
@@ -175,13 +176,12 @@
       integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
       crossorigin="anonymous"
     ></script>
-    
+
     <iframe
       id="ssIFrame_google"
       sandbox="allow-scripts allow-same-origin"
       aria-hidden="true"
-      frame-border="0"
-      src="https://accounts.google.com/o/oauth2/iframe#origin=http%3A%2F%2Flocalhost%3A3000&amp;rpcToken=1086946938.816088&amp;clearCache=1"
+      frame-border="0" src="https://accounts.google.com/o/oauth2/iframe#origin=http%3A%2F%2Flocalhost%3A3000&amp;rpcToken=1086946938.816088&amp;clearCache=1"
       style="
         position: absolute;
         width: 1px;

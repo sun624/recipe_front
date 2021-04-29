@@ -19,10 +19,12 @@ $(document).ready(() => {
     for (meal of meals) {
       myFunction(meal);
     }
+
     const btns = $(".addBtn");
     for (btn of btns) {
       $(btn).on("click", addRecp);
     }
+
 
     function myFunction(item) {
       const ingredient = [
@@ -101,7 +103,9 @@ $(document).ready(() => {
                               </div>
                               <div class="modal-footer">
                                 <button type="button" class="btn btn-dark rounded-pill" data-bs-dismiss="modal">Close</button>
+
                                 <button type="button" class="btn btn-danger rounded-pill px-3 addBtn" id=${item.idMeal} >Add</button>
+
                               </div>
                             </div>
                           </div>
@@ -155,4 +159,5 @@ $(document).ready(() => {
         });
     }
   }
+
 });
