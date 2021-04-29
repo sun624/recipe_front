@@ -25,7 +25,6 @@ $(document).ready(() => {
       $(btn).on("click", addRecp);
     }
 
-
     function myFunction(item) {
       const ingredient = [
         item.strIngredient1,
@@ -154,10 +153,21 @@ $(document).ready(() => {
       })
         .then((res) => res.json())
         .then((data) => {
-            console.log(data)
-            alert(data);
+          console.log(data);
+          alert(data);
         });
     }
   }
+});
 
+const open = document.getElementById("open");
+const modal_container = document.getElementById("modal_container");
+
+open.addEventListener("click", () => {
+  modal_container.classList.add("show");
+
+  const close = document.getElementById("close");
+  close.addEventListener("click", () => {
+    modal_container.classList.remove("show");
+  });
 });
