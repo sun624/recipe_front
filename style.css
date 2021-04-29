@@ -1,368 +1,48 @@
-html,
 body {
-  width: 100%;
-  height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        min-height: 100vh;
+        background: rgb(0, 36, 13);
+        background: linear-gradient(212deg, rgb(192, 139, 23) 0%, rgb(172, 104, 40) 35%, rgb(165, 142, 13) 100%);
+        background-repeat: no-repeat;
+
+        }
+
+.font {
+    font-family: 'Syne Mono', monospace;
 }
 
-* {
-  margin: 0px;
-  padding: 0px;
-  box-sizing: border-box;
-}
-body {
-  background-image: url("./img/background3.jpg");
-  /* background-image: url("./img/background2.jpeg"); */
-  /* background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover; */
-  /* background-color: rgb(17, 15, 17); */
-  /* border: 2px solid black; */
-}
-nav {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  min-height: 8vh;
-  background-color: rgb(32, 218, 203);
-  font-family: "Poppins", sans-serif;
-}
-.logo {
-  color: whitesmoke;
-  text-transform: uppercase;
-  letter-spacing: 5px;
-  font-size: 26px;
-}
-.nav-links {
-  display: flex;
-  /* background-color: yellow; */
-  justify-content: space-around;
-  width: 60%;
-}
-.nav-links li {
-  list-style: none;
-}
-.nav-links a {
-  color: whitesmoke;
-  text-decoration: none;
-  letter-spacing: 3px;
-  font-weight: bold;
-  font-size: 17px;
-}
-.burger {
-  display: none;
-  cursor: pointer;
-  z-index: 1;
-}
-
-.burger div {
-  width: 25px;
-  height: 3px;
-  background-color: whitesmoke;
-  margin: 5px;
-  transition: all 0.3s ease;
-}
-/* Example style to check the changes */
-.recipe_finder {
-  position: absolute;
-  top: 35%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  flex-flow: wrap;
-}
-/* Example recipe_box class update for test */
-/* .recipe_box {
-  width: 20%;
-  height: 45px;
-  background: yellow;
-  opacity: 70%;
-  margin: 20px;
-  box-sizing: border-box;
-  font-size: 30px;
-  border-radius: 10%;
-  text-align: center;
-} */
-
-.main_container {
-  position: relative;
-}
-
-.search_container {
-  position: absolute;
-  top: 10px;
-  width: 100%;
-  display: flex;
-  justify-content: space-evenly;
-}
-
-@media screen and (max-width: 768px) {
-  .search_container {
-    flex-direction: column;
-  }
-}
-
-.search-box {
-  /* position: absolute;
-  top: 55%;
-  left: 35%; */
-  /* transform: translate(-50%, -50%); */
-  background: rgb(32, 218, 203);
-  height: 35px;
-  border-radius: 40px;
-  padding: 5px;
-  display: flex;
-  font-size: large;
-}
-.submit-box {
-  /* position: absolute;
-  top: 55%;
-  left: 65%;
-  transform: translate(-50%, -50%); */
-  background: rgb(32, 218, 203);
-  height: 45px;
-  /* width: 50px; */
-  border-radius: 40px;
-  border-color: rgb(32, 218, 203);
-  padding: 10px;
-  font-weight: 800;
-  font-size: medium;
-}
-.search-box:hover > .search-text {
-  /* width: 240px; */
-  padding: 0 6px;
-}
-.search-box:hover > .search-btn {
-  background: none;
-  align-items: center;
-}
-.search-btn {
-  color: #e84118;
-  float: right;
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  background: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transform: 0.4s;
-}
-.search-text {
-  border: none;
-  background: none;
-  outline: none;
-  float: left;
-  padding: 0;
-  color: black;
-  font-size: 20px;
-  /* transition: 0.4s; */
-  line-height: 20px;
-  width: 0px;
-  text-align: center;
-}
-/* This is a style for menu_container */
-.menu_container {
-  position: absolute;
-  top: 100px;
-  /* position: absolute;
-  top: 35%;
-  left: 50%;
-  transform: translate(-50%, -50%); */
-  width: 100%;
-  /* height: auto; */
-  /* background-color: black; */
-  /* background-image: url("./img/background2.jpeg"); */
-  background-size: auto;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  flex-flow: wrap;
-}
 .box {
-  width: 20%;
-  height: 300px;
-  background: rgb(32, 218, 203);
-  opacity: 90%;
-  margin: 20px;
-  box-sizing: border-box;
-  font-size: 30px;
-  border-radius: 10%;
-  text-align: center;
+    margin-top: 10rem;
 }
 
-/* /////////////////
-MODAL POPUP STYLING
-/////////////////// */
-
-@import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
-#open {
-  background-color: rgb(32, 218, 203);
-  width: 202%;
-  height: 35px;
-  border-radius: 25px;
-  font-size: large;
+.sign-in {
+    display: inline-block;
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+    color: white;
 }
 
-button {
-  background-color: rgb(32, 218, 203);
-  border: 0;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px black;
-  color: white;
-  font-size: 14px;
-  padding: 10px 25px;
+.sign-out,.favorate{
+    display: none;
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+    color: white;
 }
 
-.recipe-container {
-  border-radius: 7px;
-  background-color: bisque;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: fixed;
-  opacity: 0;
-  pointer-events: none;
-  /* top: 100px; */
-  left: 100px;
-  height: 70vh;
-  width: 70vw;
-  transition: opacity 0.3s ease;
-  z-index: 10;
-  margin-top: 44px;
+.profile{
+    float:right;
+    margin-right:0.5em;
+    width:35px;
+    border-radius: 50%;
 }
-
-.recipe-container.show {
-  pointer-events: auto;
-  opacity: 1;
-}
-.recipe-modal {
-  background-color: #e8411840;
-  padding: 30px 50px;
-  width: 350px;
-  max-width: 100%;
-  text-align: center;
-  border-radius: 7px;
-}
-h3 {
-  margin-top: 0px;
-  margin-bottom: 20px;
-}
-label {
-  margin: 2px;
-  padding: 2px;
-  box-sizing: border-box;
-}
-/* Adding responsive media quaries */
-
-@media screen and (max-width: 1920px) {
-  .nav-links {
-    width: 60%;
-  }
-  .box {
-    width: 40%;
-  }
-  .search-box {
-    width: 35%;
-  }
-  .submit-box {
-    width: 95%;
-  }
-  .search-text {
-    width: 90%;
-  }
-  #open {
-    width: 150%;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  body {
-    overflow-x: none;
-  }
-  .nav-links {
-    position: absolute;
-    right: 0px;
-    height: 92vh;
-    top: 8vh;
-    background-color: rgb(32, 218, 203);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 50%;
-    transform: translateX(100%);
-    transition: tranform 0.5s ease-in;
-    z-index: 1;
-  }
-  .nav-links li {
-    opacity: 0%;
-  }
-  .burger {
-    display: block;
-  }
-  .box {
-    width: 90%;
-  }
-  .search-box {
-    width: 35%;
-  }
-  .submit-box {
-    width: 35%;
-  }
-  .search-text {
-    width: 90%;
-  }
-  #open {
-    width: 35%;
-  }
-  .recipe_finder {
-    width: 100%;
-    flex-direction: column;
-  }
-}
-
-.nav-active {
-  transform: translateX(0%);
-}
-
-@keyframes navLinkFade {
-  from {
-    opacity: 0;
-    transform: translateX(50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0px);
-  }
-}
-
-.toggle .line1 {
-  transform: rotate(-45deg) translate(-5px, 6px);
-}
-.toggle .line2 {
-  opacity: 0;
-}
-.toggle .line3 {
-  transform: rotate(45deg) translate(-5px, -6px);
-}
-
-/* /////////////////
-MODAL POPUP STYLING
-/////////////////// */
-
-@import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
-
-/* * {
-  box-sizing: border-box;
-}
-body {
-  background-color: #edeeff;
-  font-family: "Poppins", sans-serif;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  margin: 0;
-} */

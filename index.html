@@ -1,185 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- <meta name="google-signin-scope" content="profile email" />
+    <meta
+      name="google-signin-client_id"
+      content="870711841901-kviglku4c7l9p0b1j5a0065k53931n61.apps.googleusercontent.com"
+    /> -->
+
+    <link rel="icon" type="image/png" href="icon.png" />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+      integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+      crossorigin="anonymous"
+    ></script>
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap"
       rel="stylesheet"
     />
-    <!-- <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-      crossorigin="anonymous"
-    /> -->
-    <!-- <script
-      defer
-      src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"
-    ></script> -->
-
-    <!-- <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    /> -->
-    />
-    <link rel="stylesheet" href="footer.css" />
-
     <link rel="stylesheet" href="style.css" />
+    <!-- <script src="https://apis.google.com/js/platform.js" async defer></script> -->
     <script
       src="https://apis.google.com/js/api.js?onload=onLibraryLoaded"
       async
       defer
     ></script>
-    <title>Navagation</title>
+    <title>Recipe Finder</title>
   </head>
-  <body>
-    <nav>
-      <div class="logo">
-        <h2>Recipe Finder</h2>
-      </div>
-      <ul class="nav-links">
-        <li>
-          <a href="#">Home</a>
-        </li>
-        <li>
-          <a href="#">About</a>
-        </li>
-        <li>
-          <a href="#">Contact</a>
-        </li>
-        <li>
-          <a href="#">Blog</a>
-        </li>
-        <li>
-          <a href="#" onclick="onSignInClicked()" id="signin">Login</a>
-        </li>
-        <!-- <li>
-          <a href="#">Signup</a>
-        </li> -->
-      </ul>
-      <div class="burger">
-        <div class="line1"></div>
-        <div class="line2"></div>
-        <div class="line3"></div>
-      </div>
-    </nav>
-    <div class="main_container">
-      <div class="search_container">
-        <div class="search-box">
+
+  <body class="text-light">
+    <div ng-app="app" ui-view></div>
+    <div class="text-center box font">
+      <h1>Recipe Finder 🥘</h1>
+      <div class="row g-3 justify-content-center">
+        <div class="col-auto">
           <input
-            class="search-text"
-            type="search"
-            id="search-id"
-            name=""
-            placeholder="Look up recipes"
+            type="text"
+            class="form-control rounded-pill"
+            placeholder="Enter Your Meal Name"
           />
-          <a class="search-btn" href="#">
-            <i class="fas fa-search"></i>
-          </a>
         </div>
-        <div>
-          <!-- <input class="submit-box" type="submit" value="Create your own" />
-          <a href="#"> </a> -->
-          <button id="open">Create your own</button>
-          <div class="modal-container recipe-container" id="modal_container">
-            <div class="modal recipe-modal">
-              <h3>Create your own recipe here</h3>
-              <form action="">
-                <label for="recipename">Name: </label>
-                <input
-                  type="text"
-                  id="recipename"
-                  name="recipe"
-                  placeholder="Recipe title"
-                /><br />
-                <label for="ingredients">Ingredients: </label>
-                <textarea
-                  name=""
-                  id=""
-                  cols="30"
-                  rows="10"
-                  name="recipe"
-                  placeholder="Ingredients"
-                ></textarea
-                ><br />
-                <label for="steps">Steps: </label>
-                <textarea
-                  name=""
-                  id=""
-                  cols="30"
-                  rows="10"
-                  placeholder="Please list all the steps to cook"
-                ></textarea>
-              </form>
-
-              <button id="close">Submit recipe</button>
-            </div>
-          </div>
+        <div class="col-auto">
+          <button
+            type="submit"
+            class="btn btn-light mb-3 find-meal rounded-pill px-3"
+          >
+            Explore 🔍
+          </button>
         </div>
-      </div>
-
-      <!-- Creating a menu container for the homepage -->
-      <div class="menu_container">
-        <div class="box" id="items_container1"></div>
-        <div class="box" id="items_container2"></div>
-        <div class="box" id="items_container3"></div>
-        <div class="box" id="items_container4"></div>
+        <div class="col-auto">
+          <button class="sign-in" onclick="onSignInClicked()">Sign in</button>
+          <button class="sign-out" onclick="signOut()">Sign out</button>
+          <img class="profile" />
+          <button class="favorate" onclick="showFavs()">
+            Your favorates🍕
+          </button>
+        </div>
       </div>
     </div>
+    <div class="meals d-flex justify-content-center row mx-2"></div>
 
-    <footer id="page-footer" , class="footer-distributed">
-      <div id="page-menu">
-        <div id="page-footer-container">
-          <div class="footer-left">
-            <h3>Company<span>logo</span></h3>
-
-            <p class="footer-company-name">Group 404 © 2021</p>
-          </div>
-
-          <div class="footer-center">
-            <div>
-              <i class="fa fa-map-marker"></i>
-              <p><span>410 Terry Ave N</span> Seattle, Washington</p>
-            </div>
-
-            <div>
-              <i class="fa fa-phone"></i>
-              <p>+1.(206) 266-1000</p>
-            </div>
-
-            <div>
-              <i class="fa fa-envelope"></i>
-              <p>
-                <a href="mailto:support@tlgcohort.com">support@tlgcohort.com</a>
-              </p>
-            </div>
-          </div>
-
-          <div class="footer-right">
-            <p class="footer-company-about">
-              <span>About the company</span>
-              The Recipe Finder App allows users to search for food recipes by
-              name or find recipes for ingredients users already have. Our app
-              allows users to create a profile and save their favorite recipes.
-              Additionally, users will have the ability to create and save their
-              own recipes.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div id="page-footer-close">
-        <button id="page-footer-btn">
-          <div class="page-btn-close">
-            <span></span>
-          </div>
-        </button>
+    <footer class="footer mt-auto py-3 bg-light w-100 font">
+      <div class="result border-0 text-dark col-auto p-2">
+        <h6 class="text-center">Made by Group 404</h6>
       </div>
     </footer>
-    <script src="app.js"></script>
 
-    <script src="random-recipe.js"></script>
+    <script>
+      var auth2 = undefined;
+      function onLibraryLoaded() {
+        gapi.load("auth2", () => {
+          auth2 = gapi.auth2.init({
+            client_id:
+              "870711841901-kviglku4c7l9p0b1j5a0065k53931n61.apps.googleusercontent.com",
+            scope: "profile",
+          });
+
+          // when page first loads, user is not signed in
+          console.log("user is signed in: ", isUserSignedIn());
+
+          // listen for changes in user or signIn status
+          auth2.isSignedIn.listen(function (isSignedIn) {
+            console.log("change in sign in status ", isSignedIn);
+            if (isSignedIn) {
+              $(".sign-in").css("display", "none");
+              $(".sign-out").css("display", "inline-block");
+              $(".favorate").css("display", "inline-block");
+              $(".profile").css("display", "inline-block");
+              $(".profile").attr("src", showProfileImg());
+            } else {
+              $(".sign-in").css("display", "inline-block");
+              $(".sign-out").css("display", "none");
+              $(".favorate").css("display", "none");
+              $(".profile").css("display", "none");
+            }
+          });
+        });
+      }
+
+      // Method 1: sign in handler hooked up yourself
+      function onSignInClicked() {
+        // using global variable
+        auth2.signIn().then(
+          () => {
+            console.log("sign in successful");
+            showCurrentUserInfo();
+
+            $(".sign-in").css("display", "none");
+            $(".sign-out").css("display", "inline-block");
+            $(".profile").css("display", "inline-block");
+            $(".profile").attr("src", showProfileImg());
+            $(".favorate").css("display", "inline-block");
+          },
+          function (err) {
+            console.log("this is an error");
+          }
+        );
+      }
+
+      function isUserSignedIn() {
+        // user is signed in if you click the button since the lib has been loaded already
+        var isSignedIn = auth2.isSignedIn.get();
+
+        return isSignedIn;
+      }
+
+      // get the current users info
+      function showCurrentUserInfo() {
+        const googleUser = auth2.currentUser.get();
+        const profile = googleUser.getBasicProfile();
+        console.log("ID: " + profile.getId());
+        console.log("Full Name: " + profile.getName());
+        console.log("Given Name: " + profile.getGivenName());
+        console.log("Family Name: " + profile.getFamilyName());
+        console.log("Image URL: " + profile.getImageUrl());
+        console.log("Email: " + profile.getEmail());
+        //document.querySelector("#name").innerText = JSON.stringify(googleUser);
+      }
+
+      function showProfileImg() {
+        const googleUser = auth2.currentUser.get();
+        const profile = googleUser.getBasicProfile();
+        return profile.getImageUrl();
+      }
+
+      function signOut() {
+        auth2.signOut().then(function () {
+          console.log("user signed out");
+          $(".sign-in").css("display", "inline-block");
+          $(".sign-out").css("display", "none");
+          $(".profile").css("display", "none");
+          $(".favorate").css("display", "none");
+        });
+      }
+    </script>
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+      crossorigin="anonymous"
+    ></script>
+    <script src="script.js"></script>
+    <iframe
+      id="ssIFrame_google"
+      sandbox="allow-scripts allow-same-origin"
+      aria-hidden="true"
+      frame-border="0"
+      title=""
+      src="https://accounts.google.com/o/oauth2/iframe#origin=http%3A%2F%2Flocalhost%3A3000&amp;rpcToken=1086946938.816088&amp;clearCache=1"
+      style="
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        inset: -9999px;
+        display: none;
+      "
+    ></iframe>
   </body>
 </html>
