@@ -6,78 +6,85 @@ $(document).ready(() => {
       const error = "We Cannot Find Your Food ! Please Try Again";
       alert(error);
     }); //
+    $("input").val("");
   });
 
   async function getMeal(name) {
-    let count = 0;
     const response = await fetch(
       `https://www.themealdb.com/api/json/v1/1/search.php?s=${name}`
     );
     const data = await response.json();
     const { meals } = data;
     console.log(meals);
-    for (meal of meals) {
-      myFunction(meal);
+    for (let i = 0; i < meals.length; i++) {
+      displayCard(meals[i], i, false);
     }
-
     const btns = $(".addBtn");
     for (btn of btns) {
       $(btn).on("click", addRecp);
     }
+  }
 
-    function myFunction(item) {
-      const ingredient = [
-        item.strIngredient1,
-        item.strIngredient2,
-        item.strIngredient3,
-        item.strIngredient4,
-        item.strIngredient5,
-        item.strIngredient6,
-        item.strIngredient7,
-        item.strIngredient8,
-        item.strIngredient9,
-        item.strIngredient10,
-        item.strIngredient11,
-        item.strIngredient12,
-        item.strIngredient13,
-        item.strIngredient14,
-        item.strIngredient15,
-        item.strIngredient16,
-        item.strIngredient17,
-        item.strIngredient18,
-        item.strIngredient19,
-        item.strIngredient20,
-      ];
-      const measure = [
-        item.strMeasure1,
-        item.strMeasure2,
-        item.strMeasure3,
-        item.strMeasure4,
-        item.strMeasure5,
-        item.strMeasure6,
-        item.strMeasure7,
-        item.strMeasure8,
-        item.strMeasure9,
-        item.strMeasure10,
-        item.strMeasure11,
-        item.strMeasure12,
-        item.strMeasure13,
-        item.strMeasure14,
-        item.strMeasure15,
-        item.strMeasure16,
-        item.strMeasure17,
-        item.strMeasure18,
-        item.strMeasure19,
-        item.strMeasure20,
-      ];
+  function displayCard(item, count, isFav) {
+    const ingredient = [
+      item.strIngredient1,
+      item.strIngredient2,
+      item.strIngredient3,
+      item.strIngredient4,
+      item.strIngredient5,
+      item.strIngredient6,
+      item.strIngredient7,
+      item.strIngredient8,
+      item.strIngredient9,
+      item.strIngredient10,
+      item.strIngredient11,
+      item.strIngredient12,
+      item.strIngredient13,
+      item.strIngredient14,
+      item.strIngredient15,
+      item.strIngredient16,
+      item.strIngredient17,
+      item.strIngredient18,
+      item.strIngredient19,
+      item.strIngredient20,
+    ];
+    const measure = [
+      item.strMeasure1,
+      item.strMeasure2,
+      item.strMeasure3,
+      item.strMeasure4,
+      item.strMeasure5,
+      item.strMeasure6,
+      item.strMeasure7,
+      item.strMeasure8,
+      item.strMeasure9,
+      item.strMeasure10,
+      item.strMeasure11,
+      item.strMeasure12,
+      item.strMeasure13,
+      item.strMeasure14,
+      item.strMeasure15,
+      item.strMeasure16,
+      item.strMeasure17,
+      item.strMeasure18,
+      item.strMeasure19,
+      item.strMeasure20,
+    ];
 
-      const card =
-        `<div class="card text-dark m-2 p-2" style="max-width: 18rem;" data-bs-toggle="modal" data-bs-target="#exampleModal-${count}">
-                          <img src="${item.strMealThumb}" class="card-img-top w-100" alt="...">
-                          <div class="card-body">
+    const card =
+      `<div id="${item.idMeal}" class="card text-dark m-2 p-2" style="max-width: 18rem;" >
+                          <img src="${item.strMealThumb}" class="card-img-top w-100" alt="..." data-bs-toggle="modal" data-bs-target="#exampleModal-${count}">
+                          <div class="card-body" style="display:flex; flex-direction:coloumn;justify-content:center">
+                          
                             <h5 class="card-title">${item.strMeal}</h5>
                             <p class="card-text">(${item.strArea})</p>
-                        </div>
+                            <div class="addBtn-container">
+                            ` +
+      btnSelector(item.idMeal, isFav) +
+      `
+                        
+      </div>
+      </div>
                         </div>
                         <!-- Modal -->
                         <div class="modal fade text-dark" id="exampleModal-${count}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -97,44 +104,86 @@ $(document).ready(() => {
                                 
                                 <h5 class="p-0 m-0 text-decoration-underline">Ingredient :</h5> <br>
                                 <ul class="list-group">` +
-        ingredientsInfo(ingredient, measure) +
-        `</ul>     
+      ingredientsInfo(ingredient, measure) +
+      `</ul>     
                               </div>
                               <div class="modal-footer">
                                 <button type="button" class="btn btn-dark rounded-pill" data-bs-dismiss="modal">Close</button>
-
-                                <button type="button" class="btn btn-danger rounded-pill px-3 addBtn" id=${item.idMeal} >Add</button>
-
-                              </div>
+                                ` +
+      btnSelector(item.idMeal, isFav) +
+      `
+                                </div>
                             </div>
                           </div>
                         </div>
                     `;
 
-      function ingredientsInfo(ingredient, measure) {
-        const result = [];
-        for (let i = 0; i < ingredient.length; i++) {
-          if (
-            ingredient[i] != "" &&
-            ingredient[i] != null &&
-            measure[i] != "" &&
-            measure[i] != null
-          )
-            result.push(`<li class="list-group-item d-flex justify-content-between align-items-center">
+    function ingredientsInfo(ingredient, measure) {
+      const result = [];
+      for (let i = 0; i < ingredient.length; i++) {
+        if (
+          ingredient[i] != "" &&
+          ingredient[i] != null &&
+          measure[i] != "" &&
+          measure[i] != null
+        )
+          result.push(`<li class="list-group-item d-flex justify-content-between align-items-center">
                                     ${ingredient[i]}
                                         <span class="badge bg-dark rounded-pill">${measure[i]}</span>
                                 </li>`);
-        }
-        return result.join("");
       }
-      $(".meals").append(card);
-      count++;
+      return result.join("");
+    }
+
+    $(".meals").append(card);
+  }
+
+  function btnSelector(id, isFav) {
+    if (!isFav) {
+      return `<button type="button" data-bs-dismiss="modal" class="btn btn-danger rounded-pill px-3 addBtn" id=${id}>Add</button>`;
+    } else {
+      return `<button type="button" data-bs-dismiss="modal" class="btn btn-warning rounded-pill px-3 delBtn" id=${id}>Delete</button>`;
     }
   }
 
+  $(".favorate").on("click", () => {
+    $(".meals").empty();
+    let url = new URL("https://recipe-finder-group404.herokuapp.com");
+    url.search = new URLSearchParams({ email: showCurrentUserInfo().email });
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => {
+        for (let i = 0; i < data.length; i++) {
+          displayCard(data[i].recipe, i, true);
+        }
+        const btns = $(".delBtn");
+        for (btn of btns) {
+          $(btn).on("click", delRecp);
+        }
+      });
+  });
+
+  function delRecp(e) {
+    const data = {
+      email: showCurrentUserInfo().email,
+      mealId: e.target.id,
+    };
+
+    fetch("https://recipe-finder-group404.herokuapp.com/", {
+      method: "DELETE",
+      //MUST match the data type body is sending
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then(() => {
+        $(`#${e.target.id}`).remove();
+      });
+  }
+
   function addRecp(e) {
-    console.log(e);
-    console.log("user sign in status" + isUserSignedIn());
+    // console.log(e);
+    // console.log("user sign in status" + isUserSignedIn());
     if (!isUserSignedIn()) {
       alert("please sign in to add");
     } else {
@@ -145,29 +194,16 @@ $(document).ready(() => {
         mealId: e.target.id,
       };
 
-      fetch("https://recipe-404.herokuapp.com/", {
+      fetch("https://recipe-finder-group404.herokuapp.com/", {
         method: "POST",
         //MUST match the data type body is sending
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       })
         .then((res) => res.json())
-        .then((data) => {
-          console.log(data);
-          alert(data);
+        .then(() => {
+          alert("Added Successfully");
         });
     }
   }
-});
-
-const open = document.getElementById("open");
-const modal_container = document.getElementById("modal_container");
-
-open.addEventListener("click", () => {
-  modal_container.classList.add("show");
-
-  const close = document.getElementById("close");
-  close.addEventListener("click", () => {
-    modal_container.classList.remove("show");
-  });
 });
