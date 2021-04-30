@@ -82,11 +82,11 @@
     <div ng-app="app" ui-view></div>
     <div class="text-center box font search-box recipe-search">
       <!-- <h1>Recipe Finder 🥘</h1> -->
-      <div class="row g-3 justify-content-center">
+      <div class="row g-3 justify-content-center button-align">
         <div class="col-auto">
           <input
             type="text"
-            class="form-control rounded-pill"
+            class="form-control rounded-pill enter-meal"
             placeholder="Enter Your Meal Name"
           />
         </div>
@@ -137,7 +137,17 @@
               <!-- <form action="">
                 <label for="">Recipe Name</label>
               </form> -->
-              <button id="close">Submit recipe</button>
+              <div>
+                <button id="close">Submit recipe</button>
+                <button
+                  type="button"
+                  onclick="document.getElementById('modal_container').style.display='none' "
+                  id="close"
+                  class="cancelbtn"
+                >
+                  Cancel
+                </button>
+              </div>
             </div>
           </div>
         </div>

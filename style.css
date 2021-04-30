@@ -23,16 +23,20 @@ body {
 .box {
   margin-top: 10rem;
 }
+.enter-meal {
+  box-shadow: 0 2px 4px black;
+}
 
 .sign-in {
+  border-radius: 15px;
   display: inline-block;
-  background-color: Transparent;
+  background-color: white;
   background-repeat: no-repeat;
   border: none;
   cursor: pointer;
   overflow: hidden;
   outline: none;
-  color: white;
+  color: black;
 }
 
 .sign-out,
@@ -89,15 +93,20 @@ example
   font-size: large;
   color: black;
 }
-
+.button-align {
+  width: 100%;
+}
+#close {
+  border-radius: 7px;
+}
 button {
   background-color: white;
   border: 0;
-  border-radius: 6px;
+  border-radius: 7px;
   box-shadow: 0 2px 4px black;
   color: black;
   font-size: 14px;
-  padding: 10px 25px;
+  padding: 6px 16px;
 }
 .recipe-container.show {
   pointer-events: auto;
